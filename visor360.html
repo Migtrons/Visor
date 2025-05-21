@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Visor 360</title>
+  <script src="https://cdn.pannellum.org/2.5/pannellum.js"></script>
+  <link rel="stylesheet" href="https://cdn.pannellum.org/2.5/pannellum.css"/>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #000;
+    }
+    #panorama {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="panorama"></div>
+  <script>
+    // Obtener parámetro ?img=...
+    const urlParams = new URLSearchParams(window.location.search);
+    const imageUrl = urlParams.get('img');
+
+    if (imageUrl) {
+      pannellum.viewer('panorama', {
+        type: 'equirectangular',
+        panorama: imageUrl,
+        autoLoad: true
+      });
+    } else {
+      document.getElementById('panorama').innerHTML = "<p style='color:white; text-align:center; padding-top:50px;'>No se especificó imagen</p>";
+    }
+  </script>
+</body>
+</html>
