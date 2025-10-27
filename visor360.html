@@ -5,21 +5,43 @@
   <title>Visor 360</title>
   <script src="https://cdn.pannellum.org/2.5/pannellum.js"></script>
   <link rel="stylesheet" href="https://cdn.pannellum.org/2.5/pannellum.css"/>
+
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       background-color: #000;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      overflow: hidden;
     }
+
     #panorama {
       width: 100%;
       height: 100%;
     }
+
+    /* Marca de agua */
+    #watermark {
+      position: fixed;
+      bottom: 15px;
+      right: 20px;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      z-index: 9999;
+      pointer-events: none;
+      text-shadow: 0 0 5px rgba(0,0,0,0.6);
+    }
   </style>
 </head>
-<body>
+
+<body oncontextmenu="return false;">
   <div id="panorama"></div>
+  <div id="watermark">© Migtrons 2025</div>
+
   <script>
     // Obtener parámetro ?img=...
     const urlParams = new URLSearchParams(window.location.search);
@@ -32,7 +54,8 @@
         autoLoad: true
       });
     } else {
-      document.getElementById('panorama').innerHTML = "<p style='color:white; text-align:center; padding-top:50px;'>No se especificó imagen</p>";
+      document.getElementById('panorama').innerHTML = 
+        "<p style='color:white; text-align:center; padding-top:50px;'>No se especificó imagen</p>";
     }
   </script>
 </body>
