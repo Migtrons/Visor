@@ -38,10 +38,10 @@
       pointer-events: none;
     }
 
-    /* Icono personalizado */
+    /* Ícono de flecha personalizada */
     .custom-hotspot {
-      width: 48px;
-      height: 48px;
+      width: 50px;
+      height: 50px;
       background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e7/Blue_arrow_right.svg');
       background-size: contain;
       background-repeat: no-repeat;
@@ -58,7 +58,7 @@
 
 <body oncontextmenu="return false;">
   <div id="panorama"></div>
-  <div id="watermark">© Migtrons 2025</div>
+  <div id="watermark">© Migtrons 2025 Miguel Mesa</div>
 
   <script>
     const img1 = 'https://raw.githubusercontent.com/Migtrons/Img360/refs/heads/main/Tibitoc1.jpg';
@@ -70,33 +70,31 @@
     function loadPanorama(image) {
       const hotspots = [];
 
-      // Hotspot para la primera imagen
+      // Hotspot en la primera vista
       if (image === img1) {
         hotspots.push({
-          pitch: 0,   // altura del punto (ajusta según lo necesites)
-          yaw: 30,    // ángulo horizontal (ajústalo también)
-          createTooltipFunc: (div) => {
+          pitch: 0,
+          yaw: 30,
+          createTooltipFunc: (div, args) => {
             const icon = document.createElement('div');
             icon.classList.add('custom-hotspot');
             div.appendChild(icon);
           },
-          clickHandlerFunc: () => loadPanorama(img2),
-          text: "Ir a vista 2"
+          clickHandlerFunc: () => loadPanorama(img2)
         });
       }
 
-      // Hotspot para la segunda imagen
+      // Hotspot en la segunda vista
       if (image === img2) {
         hotspots.push({
           pitch: 0,
           yaw: -45,
-          createTooltipFunc: (div) => {
+          createTooltipFunc: (div, args) => {
             const icon = document.createElement('div');
             icon.classList.add('custom-hotspot');
             div.appendChild(icon);
           },
-          clickHandlerFunc: () => loadPanorama(img1),
-          text: "Volver a vista 1"
+          clickHandlerFunc: () => loadPanorama(img1)
         });
       }
 
