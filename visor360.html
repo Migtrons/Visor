@@ -70,29 +70,33 @@
     function loadPanorama(image) {
       const hotspots = [];
 
+      // Hotspot para la primera imagen
       if (image === img1) {
         hotspots.push({
-          pitch: 0,        // Ajustar verticalmente
-          yaw: 30,         // Ajustar horizontalmente
-          cssClass: 'custom-hotspot',
+          pitch: 0,   // altura del punto (ajusta según lo necesites)
+          yaw: 30,    // ángulo horizontal (ajústalo también)
           createTooltipFunc: (div) => {
-            div.classList.add('custom-hotspot');
+            const icon = document.createElement('div');
+            icon.classList.add('custom-hotspot');
+            div.appendChild(icon);
           },
           clickHandlerFunc: () => loadPanorama(img2),
-          text: "Ir a otra vista"
+          text: "Ir a vista 2"
         });
       }
 
+      // Hotspot para la segunda imagen
       if (image === img2) {
         hotspots.push({
           pitch: 0,
           yaw: -45,
-          cssClass: 'custom-hotspot',
           createTooltipFunc: (div) => {
-            div.classList.add('custom-hotspot');
+            const icon = document.createElement('div');
+            icon.classList.add('custom-hotspot');
+            div.appendChild(icon);
           },
           clickHandlerFunc: () => loadPanorama(img1),
-          text: "Volver a vista anterior"
+          text: "Volver a vista 1"
         });
       }
 
