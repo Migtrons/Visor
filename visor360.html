@@ -12,10 +12,9 @@
       padding: 0;
       height: 100%;
       background-color: #000;
-      -webkit-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
       overflow: hidden;
+      -webkit-user-select: none;
+      user-select: none;
     }
 
     #panorama {
@@ -24,25 +23,36 @@
     }
 
     /* Marca de agua */
-<div id="watermark">© Migtrons 2025</div>
+    #watermark {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      z-index: 9999;
+      pointer-events: none;
+    }
 
-<style>
-  #watermark {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.4);
-    color: white;
-    padding: 5px 12px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-    z-index: 9999;
-    pointer-events: none;
-  }
-</style>
+    /* Icono personalizado para el hotspot */
+    .custom-hotspot {
+      width: 48px;
+      height: 48px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e7/Blue_arrow_right.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
 
+    .custom-hotspot:hover {
+      transform: scale(1.2);
+    }
   </style>
 </head>
 
@@ -51,21 +61,46 @@
   <div id="watermark">© Migtrons 2025</div>
 
   <script>
-    // Obtener parámetro ?img=...
-    const urlParams = new URLSearchParams(window.location.search);
-    const imageUrl = urlParams.get('img');
+    const img1 = 'https://raw.githubusercontent.com/Migtrons/Img360/refs/heads/main/Tibitoc1.jpg';
+    const img2 = 'https://raw.githubusercontent.com/Migtrons/Img360/refs/heads/main/Tibitoc_V2_A_V5.jpeg';
 
-    if (imageUrl) {
+    const urlParams = new URLSearchParams(window.location.search);
+    let imageUrl = urlParams.get('img') || img1;
+
+    function loadPanorama(image) {
+      const hotspots = [];
+
+      // Si estás viendo la primera imagen
+      if (image === img1) {
+        hotspots.push({
+          pitch: 0,        // Ajusta vertical
+          yaw: 30,         // Ajusta horizontal
+          createTooltipFunc: (div) => div.classList.add('custom-hotspot'),
+          clickHandlerFunc: () => loadPanorama(img2),
+          text: "Ir a vista 2"
+        });
+      }
+
+      // Si estás viendo la segunda imagen
+      if (image === img2) {
+        hotspots.push({
+          pitch: 0,
+          yaw: -45,
+          createTooltipFunc: (div) => div.classList.add('custom-hotspot'),
+          clickHandlerFunc: () => loadPanorama(img1),
+          text: "Volver a vista 1"
+        });
+      }
+
       pannellum.viewer('panorama', {
         type: 'equirectangular',
-        panorama: imageUrl,
-        autoLoad: true
+        panorama: image,
+        autoLoad: true,
+        hotSpots: hotspots
       });
-    } else {
-      document.getElementById('panorama').innerHTML = 
-        "<p style='color:white; text-align:center; padding-top:50px;'>No se especificó imagen</p>";
     }
+
+    loadPanorama(imageUrl);
   </script>
 </body>
 </html>
-
