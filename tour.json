@@ -13,7 +13,7 @@
       "hotSpots": [
         {
           "yaw": -20,
-          "pitch": -50,
+          "pitch": -20,
           "type": "scene",
           "text": "Ir a V2 A V5",
           "sceneId": "v2av5"
@@ -73,6 +73,7 @@
     }
   }
 }
+
 
 
 
