@@ -17,6 +17,13 @@
           "type": "scene",
           "text": "Ir a V2 A V5",
           "sceneId": "v2av5"
+        },
+        {
+          "yaw": 110,
+          "pitch": 0,
+          "type": "scene",
+          "text": "Ir a Tanque Alto",
+          "sceneId": "tanquealto"
         }
       ]
     },
@@ -66,4 +73,5 @@
     }
   }
 }
+
 
