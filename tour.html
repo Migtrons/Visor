@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tour Virtual - Tibitoc</title>
+  <script src="https://cdn.pannellum.org/2.5/pannellum.js"></script>
+  <link rel="stylesheet" href="https://cdn.pannellum.org/2.5/pannellum.css"/>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #000;
+      overflow: hidden;
+      -webkit-user-select: none;
+      user-select: none;
+      font-family: Arial, sans-serif;
+    }
+
+    #panorama {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Menú lateral */
+    #menu {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      border-radius: 12px;
+      padding: 10px 14px;
+      z-index: 10000;
+      max-width: 200px;
+    }
+
+    #menu h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 5px;
+    }
+
+    .menu-btn {
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+      padding: 6px 10px;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: rgba(255,255,255,0.8);
+      color: #000;
+      transition: background 0.3s;
+      text-align: left;
+    }
+
+    .menu-btn:hover {
+      background: #007bff;
+      color: #fff;
+    }
+
+    /* Flecha personalizada */
+    .custom-hotspot {
+      width: 50px;
+      height: 50px;
+      background-image: url('https://raw.githubusercontent.com/Migtrons/Img360/refs/heads/main/FlechAzul.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .custom-hotspot:hover {
+      transform: scale(1.3);
+    }
+
+    /* Marca de agua */
+    #watermark {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      z-index: 9999;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body oncontextmenu="return false;">
+  <div id="menu">
+    <h3>Tour Tibitoc</h3>
+    <div id="sceneList"></div>
+  </div>
+
+  <div id="panorama"></div>
+  <div id="watermark">© Migtrons 2025 Miguel Mesa</div>
+
+  <script>
+    // Cargar el archivo JSON del tour
+    fetch('tour.json')
+      .then(response => response.json())
+      .then(tourData => {
+        const viewer = pannellum.viewer('panorama', tourData);
+
+        // Crear menú dinámico
+        const list = document.getElementById('sceneList');
+        for (const sceneId in tourData.scenes) {
+          const btn = document.createElement('button');
+          btn.className = 'menu-btn';
+          btn.textContent = tourData.scenes[sceneId].title;
+          btn.onclick = () => viewer.loadScene(sceneId);
+          list.appendChild(btn);
+        }
+      })
+      .catch(err => console.error('Error cargando tour:', err));
+  </script>
+</body>
+</html>

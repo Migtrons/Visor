@@ -1,0 +1,61 @@
+{
+  "default": {
+    "firstScene": "tibitoc1",
+    "sceneFadeDuration": 1000,
+    "autoLoad": true
+  },
+  "scenes": {
+    "tibitoc1": {
+      "title": "Tratamiento Tibitoc",
+      "panorama": "https://raw.githubusercontent.com/Migtrons/Img360/refs/heads/main/Tibitoc1.jpg",
+      "yaw": 0,
+      "pitch": 0,
+      "hotSpots": [
+        {
+          "yaw": 30,
+          "pitch": 0,
+          "type": "scene",
+          "text": "Ir a V2 A V5",
+          "sceneId": "v2av5"
+        }
+      ]
+    },
+    "v2av5": {
+      "title": "V2 A V5",
+      "panorama": "https://raw.githubusercontent.com/Migtrons/Img360/refs/heads/main/Tibitoc_V2_A_V5.jpeg",
+      "yaw": 0,
+      "pitch": 0,
+      "hotSpots": [
+        {
+          "yaw": -45,
+          "pitch": 0,
+          "type": "scene",
+          "text": "Volver a Tratamiento Tibitoc",
+          "sceneId": "tibitoc1"
+        },
+        {
+          "yaw": 110,
+          "pitch": 0,
+          "type": "scene",
+          "text": "Ir a Tanque Alto",
+          "sceneId": "tanquealto"
+        }
+      ]
+    },
+    "tanquealto": {
+      "title": "Tanque Alto",
+      "panorama": "https://raw.githubusercontent.com/Migtrons/Img360/refs/heads/main/Tibitoc_TKAlto1.jpeg",
+      "yaw": 0,
+      "pitch": 0,
+      "hotSpots": [
+        {
+          "yaw": -90,
+          "pitch": 0,
+          "type": "scene",
+          "text": "Ir a V2 A V5",
+          "sceneId": "v2av5"
+        }
+      ]
+    }
+  }
+}
