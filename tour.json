@@ -19,7 +19,7 @@
           "sceneId": "v2av5"
         },
         {
-          "yaw": 0,
+          "yaw": 20,
           "pitch": 0,
           "type": "scene",
           "text": "Ir a Tanque Alto",
@@ -73,6 +73,7 @@
     }
   }
 }
+
 
 
 
