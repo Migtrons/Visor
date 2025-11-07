@@ -12,14 +12,14 @@
       "pitch": 0,
       "hotSpots": [
         {
-          "yaw": -10,
+          "yaw": -11,
           "pitch": -20,
           "type": "scene",
           "text": "Ir a V2 A V5",
           "sceneId": "v2av5"
         },
         {
-          "yaw": 110,
+          "yaw": -110,
           "pitch": 0,
           "type": "scene",
           "text": "Ir a Tanque Alto",
@@ -73,6 +73,7 @@
     }
   }
 }
+
 
 
 
