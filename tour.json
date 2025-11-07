@@ -54,8 +54,16 @@
           "type": "scene",
           "text": "Ir a V2 A V5",
           "sceneId": "v2av5"
+        },
+        {
+          "yaw": 110,
+          "pitch": 0,
+          "type": "scene",
+          "text": "Volver a Tratamiento Tibitoc",
+          "sceneId": "tibitoc1"
         }
       ]
     }
   }
 }
+
