@@ -34,14 +34,14 @@
       "pitch": 0,
       "hotSpots": [
         {
-          "yaw": -45,
+          "yaw": -90,
           "pitch": 0,
           "type": "scene",
           "text": "Volver a Tratamiento Tibitoc",
           "sceneId": "tibitoc1"
         },
         {
-          "yaw": 110,
+          "yaw": 10,
           "pitch": 0,
           "type": "scene",
           "text": "Ir a Tanque Alto",
@@ -73,6 +73,7 @@
     }
   }
 }
+
 
 
 
