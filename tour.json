@@ -19,7 +19,7 @@
           "sceneId": "v2av5"
         },
         {
-          "yaw": 0,
+          "yaw": -10,
           "pitch": 0,
           "type": "scene",
           "text": "Ir a Tanque Alto",
@@ -34,14 +34,14 @@
       "pitch": 0,
       "hotSpots": [
         {
-          "yaw": -90,
+          "yaw": -50,
           "pitch": 0,
           "type": "scene",
           "text": "Volver a Tratamiento Tibitoc",
           "sceneId": "tibitoc1"
         },
         {
-          "yaw": 10,
+          "yaw": 5,
           "pitch": 0,
           "type": "scene",
           "text": "Ir a Tanque Alto",
@@ -63,7 +63,7 @@
           "sceneId": "v2av5"
         },
         {
-          "yaw": 110,
+          "yaw": 100,
           "pitch": 0,
           "type": "scene",
           "text": "Volver a Tratamiento Tibitoc",
@@ -73,6 +73,7 @@
     }
   }
 }
+
 
 
 
