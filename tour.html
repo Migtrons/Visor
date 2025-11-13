@@ -97,6 +97,26 @@
       z-index: 9999;
       pointer-events: none;
     }
+    
+    /* Contador de visitas */
+    #visit-counter {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-family: Arial, sans-serif;
+      z-index: 10000;
+      user-select: none;
+      transition: background 0.3s;
+    }
+
+    #visit-counter:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
   </style>
 </head>
 
@@ -130,4 +150,5 @@
   </script>
 </body>
 </html>
+
 
